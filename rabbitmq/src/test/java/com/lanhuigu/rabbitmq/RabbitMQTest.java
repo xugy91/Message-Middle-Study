@@ -22,15 +22,8 @@ public class RabbitMQTest {
      */
     @Test
     public void send() throws IOException, TimeoutException {
-        // 创建连接工厂
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("127.0.0.1");
-        factory.setPort(5672);
-        factory.setUsername("guest");
-        factory.setPassword("guest");
-
-        // 创建连接
-        Connection connection = factory.newConnection();
+        // 获取连接
+        Connection connection = ConnectionUtil.getConnection();
 
         // 创建消息通道
         Channel channel = connection.createChannel();
@@ -59,15 +52,8 @@ public class RabbitMQTest {
      */
     @Test
     public void consumer() throws IOException, TimeoutException, InterruptedException {
-        // 创建连接工厂
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("127.0.0.1");
-        factory.setPort(5672);
-        factory.setUsername("guest");
-        factory.setPassword("guest");
-
-        // 创建连接
-        Connection connection = factory.newConnection();
+        // 获取连接
+        Connection connection = ConnectionUtil.getConnection();
 
         // 创建消息通道
         Channel channel = connection.createChannel();
