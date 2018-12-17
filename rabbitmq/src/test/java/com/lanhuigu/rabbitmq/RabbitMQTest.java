@@ -8,6 +8,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ * RabbitMQ生产-->消费测试
  * @author yihonglei
  * @date 2018/12/13 17:07
  */
@@ -37,7 +38,7 @@ public class RabbitMQTest {
             // 发布消息，第一个参数表示路由（Exchange名称），未""则表示使用默认消息路由
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
 
-            System.out.println(" [x] Sent '" + message + "'");
+            System.out.println(" Sent '" + message + "'");
         }
 
         // 关闭消息通道和连接
@@ -58,7 +59,7 @@ public class RabbitMQTest {
         // 创建消息通道
         Channel channel = connection.createChannel();
 
-        // 消息队列
+        // 声明消息队列
         channel.queueDeclare(QUEUE_NAME, true, false, false, null);
         System.out.println("[*] Waiting for message. To exist press CTRL+C");
 
@@ -71,9 +72,9 @@ public class RabbitMQTest {
                 String message = new String(body, "UTF-8");
 
                 try {
-                    System.out.println(" [x] Received '" + message);
+                    System.out.println(" Received " + message);
                 } finally {
-                    System.out.println(" [x] Done");
+                    System.out.println(" Done ");
                     channel.basicAck(envelope.getDeliveryTag(), false);
                 }
             }
