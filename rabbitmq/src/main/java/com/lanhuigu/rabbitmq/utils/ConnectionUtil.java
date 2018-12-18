@@ -1,4 +1,4 @@
-package com.lanhuigu.rabbitmq;
+package com.lanhuigu.rabbitmq.utils;
 
 import com.rabbitmq.client.*;
 
