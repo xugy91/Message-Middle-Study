@@ -8,4 +8,7 @@ package com.lanhuigu.rabbitmq.utils;
 public class QueueConsant {
     // 简单消息队列名称
     public final static String SIMPLE_QUEUE_NAME = "hello-yhl";
+
+    // 工作队列消息队列名称
+    public final static String WORK_QUEUE_NAME = "work-queue-yhl";
 }

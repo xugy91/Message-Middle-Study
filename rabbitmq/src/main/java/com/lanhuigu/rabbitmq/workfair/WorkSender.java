@@ -1,4 +1,4 @@
-package com.lanhuigu.rabbitmq.work;
+package com.lanhuigu.rabbitmq.workfair;
 
 import com.lanhuigu.rabbitmq.utils.ConnectionUtil;
 import com.lanhuigu.rabbitmq.utils.QueueConsant;
@@ -33,6 +33,13 @@ public class WorkSender {
 
         // 声明消息队列
         channel.queueDeclare(QueueConsant.WORK_QUEUE_NAME, false,false, false, null);
+
+        /*
+          每个消费者发送确认消息之前，消息队列不发送下一个消息到消费者，一次只处理一个消息。
+          限制发送给同一个消费者不得超过1条消息。
+        */
+        int perfetchCount = 1;
+        channel.basicQos(perfetchCount);
 
         // 消息发送
         for (int i = 0; i < 50; i++) {
