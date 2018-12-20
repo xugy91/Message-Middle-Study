@@ -31,6 +31,7 @@ public class PSTest {
      * @author yihonglei
      * @date 2018/12/20 17:21
      */
+    @Test
     public void consumerEmail() throws InterruptedException, TimeoutException, IOException {
         PSConsumer1.consumeEmail();
     }
@@ -40,6 +41,7 @@ public class PSTest {
      * @author yihonglei
      * @date 2018/12/20 17:22
      */
+    @Test
     public void consumeSms() throws InterruptedException, TimeoutException, IOException {
         PSConsumer2.consumeSMS();
     }
