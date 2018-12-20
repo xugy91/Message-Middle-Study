@@ -1,7 +1,7 @@
 package com.lanhuigu.rabbitmq.simple;
 
 import com.lanhuigu.rabbitmq.utils.ConnectionUtil;
-import com.lanhuigu.rabbitmq.utils.QueueConsant;
+import com.lanhuigu.rabbitmq.utils.CommonConsant;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class SimpleConsumer {
         Channel channel = connection.createChannel();
 
         // 声明消息队列
-        channel.queueDeclare(QueueConsant.SIMPLE_QUEUE_NAME, true, false, false, null);
+        channel.queueDeclare(CommonConsant.SIMPLE_QUEUE_NAME, true, false, false, null);
         System.out.println("[*] Waiting for message. To exist press CTRL+C");
 
         AtomicInteger count = new AtomicInteger();
@@ -48,7 +48,7 @@ public class SimpleConsumer {
             }
         };
 
-        channel.basicConsume(QueueConsant.SIMPLE_QUEUE_NAME, false, consumer);
+        channel.basicConsume(CommonConsant.SIMPLE_QUEUE_NAME, false, consumer);
         Thread.sleep(1000 * 60);
     }
 

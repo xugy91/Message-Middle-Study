@@ -1,7 +1,7 @@
 package com.lanhuigu.rabbitmq.work;
 
 import com.lanhuigu.rabbitmq.utils.ConnectionUtil;
-import com.lanhuigu.rabbitmq.utils.QueueConsant;
+import com.lanhuigu.rabbitmq.utils.CommonConsant;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class WorkConsumer1 {
         Channel channel = connection.createChannel();
 
         // 声明队列
-        channel.queueDeclare(QueueConsant.WORK_QUEUE_NAME, false, false, false, null);
+        channel.queueDeclare(CommonConsant.WORK_QUEUE_NAME, false, false, false, null);
 
         // 定义一个消费者监听消息
         Consumer consumer = new DefaultConsumer(channel){
@@ -50,7 +50,7 @@ public class WorkConsumer1 {
         };
 
         boolean autoAck = true;
-        channel.basicConsume(QueueConsant.WORK_QUEUE_NAME, autoAck, consumer);
+        channel.basicConsume(CommonConsant.WORK_QUEUE_NAME, autoAck, consumer);
 
         // 让程序处于运行状态，让消费者监听消息
         Thread.sleep(1000 * 60);

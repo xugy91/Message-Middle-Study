@@ -1,7 +1,7 @@
 package com.lanhuigu.rabbitmq.workfair;
 
 import com.lanhuigu.rabbitmq.utils.ConnectionUtil;
-import com.lanhuigu.rabbitmq.utils.QueueConsant;
+import com.lanhuigu.rabbitmq.utils.CommonConsant;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
@@ -32,7 +32,7 @@ public class WorkSender {
         Channel channel = connection.createChannel();
 
         // 声明消息队列
-        channel.queueDeclare(QueueConsant.WORK_QUEUE_NAME, false,false, false, null);
+        channel.queueDeclare(CommonConsant.WORK_QUEUE_NAME, false,false, false, null);
 
         /*
           每个消费者发送确认消息之前，消息队列不发送下一个消息到消费者，一次只处理一个消息。
@@ -47,7 +47,7 @@ public class WorkSender {
 
             System.out.println("生产者：" + message);
 
-            channel.basicPublish("", QueueConsant.WORK_QUEUE_NAME, null, message.getBytes());
+            channel.basicPublish("", CommonConsant.WORK_QUEUE_NAME, null, message.getBytes());
 
             // 每次消息发送后休眠下，避免消息发送太快，看不出效果
             Thread.sleep(i + 20);
