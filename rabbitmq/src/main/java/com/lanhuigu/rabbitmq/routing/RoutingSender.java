@@ -13,7 +13,7 @@ import java.util.concurrent.TimeoutException;
  * @author yihonglei
  * @date 2018/12/20 22:51
  */
-public class RountingSender {
+public class RoutingSender {
 
     /**
      * 路由队列的key

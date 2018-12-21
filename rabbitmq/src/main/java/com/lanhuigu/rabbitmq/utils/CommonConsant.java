@@ -24,7 +24,7 @@ public class CommonConsant {
     // 短信队列名称
     public final static String EXCHANGE_NAME_FANOUT_SMS = "test-queue-sms";
 
-    // ===================== Rounting路由模式-fanout =====================
+    // ===================== Routing路由模式-fanout =====================
     // 交换机名称
     public final static String EXCHANGE_NAME_DIRECT = "test-exchange-direct";
 
