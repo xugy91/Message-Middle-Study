@@ -23,10 +23,10 @@ public class PSConsumer2 {
         Channel channel = connection.createChannel();
 
         // 声明队列
-        channel.queueDeclare(CommonConsant.EXCHANGE_NAME_SMS, false, false, false, null);
+        channel.queueDeclare(CommonConsant.EXCHANGE_NAME_FANOUT_SMS, false, false, false, null);
 
         // 将队列绑定到交换机
-        channel.queueBind(CommonConsant.EXCHANGE_NAME_SMS, CommonConsant.EXCHANGE_NAME, "");
+        channel.queueBind(CommonConsant.EXCHANGE_NAME_FANOUT_SMS, CommonConsant.EXCHANGE_NAME_FANOUT, "");
 
         channel.basicQos(1); // 保证一次只分发一个消息，直到处理完，再接受下一个消息
 
@@ -51,7 +51,7 @@ public class PSConsumer2 {
         };
 
         boolean autoAck = false;
-        channel.basicConsume(CommonConsant.EXCHANGE_NAME_SMS, autoAck, consumer);
+        channel.basicConsume(CommonConsant.EXCHANGE_NAME_FANOUT_SMS, autoAck, consumer);
 
         // 让程序处于运行状态，让消费者监听消息
         Thread.sleep(1000 * 60);

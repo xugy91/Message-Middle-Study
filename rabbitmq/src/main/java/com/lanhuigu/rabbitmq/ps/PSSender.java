@@ -24,11 +24,11 @@ public class PSSender {
         Channel channel = connection.createChannel();
 
         // 声明交换机
-        channel.exchangeDeclare(CommonConsant.EXCHANGE_NAME, "fanout"); // 分发
+        channel.exchangeDeclare(CommonConsant.EXCHANGE_NAME_FANOUT, "fanout"); // 分发
 
         // 发送消息(将消息发送到交换机)
         String message = "hello, ps!";
-        channel.basicPublish(CommonConsant.EXCHANGE_NAME, "", null, message.getBytes());
+        channel.basicPublish(CommonConsant.EXCHANGE_NAME_FANOUT, "", null, message.getBytes());
         System.out.println("PS-Send：" + message);
 
         // 关闭连接

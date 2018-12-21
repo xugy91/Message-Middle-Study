@@ -1,4 +1,4 @@
-package com.lanhuigu.rabbitmq.ps;
+package com.lanhuigu.rabbitmq.routing;
 
 import com.lanhuigu.rabbitmq.utils.CommonConsant;
 import com.lanhuigu.rabbitmq.utils.ConnectionUtil;
@@ -8,14 +8,18 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * 消费者1
- *
+ * 【路由模式】模拟error级别的消费，消费key为error日志，监听key为key
  * @author yihonglei
- * @date 2018/12/20 10:33
+ * @date 2018/12/20 22:52
  */
-public class PSConsumer1 {
+public class RountingConsumer1 {
 
-    public static void consumeEmail() throws IOException, TimeoutException, InterruptedException {
+    /**
+     * 监听Rounting key为error的消费者
+     * @author yihonglei
+     * @date 2018/12/21 18:55
+     */
+    public static void consume() throws IOException, TimeoutException, InterruptedException {
         // 创建连接
         Connection connection = ConnectionUtil.getConnection();
 
@@ -23,35 +27,36 @@ public class PSConsumer1 {
         Channel channel = connection.createChannel();
 
         // 声明队列
-        channel.queueDeclare(CommonConsant.EXCHANGE_NAME_FANOUT_EMAIL, false, false, false, null);
+        channel.queueDeclare(CommonConsant.DIRECT_QUEUE1_NAME, false, false, false, null);
 
-        // 将队列绑定到交换机
-        channel.queueBind(CommonConsant.EXCHANGE_NAME_FANOUT_EMAIL, CommonConsant.EXCHANGE_NAME_FANOUT, "");
+        channel.basicQos(1);
 
-        channel.basicQos(1); // 保证一次只分发一个消息，直到处理完，再接受下一个消息
+        // 队列绑定到交换机
+        channel.queueBind(CommonConsant.DIRECT_QUEUE1_NAME, CommonConsant.EXCHANGE_NAME_DIRECT, CommonConsant.ROUNTING_KKEY_ERROR);
 
-        // 定义一个消费者
+        // 消息消费
         Consumer consumer = new DefaultConsumer(channel) {
-            // 消息
+
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope,
                                        AMQP.BasicProperties properties, byte[] body) throws IOException {
-                String msg = new String(body, "UTF-8");
-                System.out.println("PS-EMAIL-Consumer1：" + msg);
+                String message = new String(body, "UTF-8");
+                System.out.println("RountingConsumer1--message：" + message);
 
                 try {
+                    // 模拟业务处理
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    System.out.println("PS-EMAIL-Consumer1：Done");
+                    System.out.println("RountingConsumer1：Done");
                     channel.basicAck(envelope.getDeliveryTag(), false);
                 }
             }
-        };
 
+        };
         boolean autoAck = false;
-        channel.basicConsume(CommonConsant.EXCHANGE_NAME_FANOUT_EMAIL, autoAck, consumer);
+        channel.basicConsume(CommonConsant.DIRECT_QUEUE1_NAME, autoAck, consumer);
 
         // 让程序处于运行状态，让消费者监听消息
         Thread.sleep(1000 * 60);
