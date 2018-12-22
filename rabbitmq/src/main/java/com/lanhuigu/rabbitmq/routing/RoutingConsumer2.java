@@ -9,6 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * 【路由模式】模拟info、error、warning级别的消费，即路由的key列表为info、error、warning
+ *
  * @author yihonglei
  * @date 2018/12/20 22:52
  */
@@ -16,6 +17,7 @@ public class RoutingConsumer2 {
 
     /**
      * 监听Rounting key为info、error、warning的消费者
+     *
      * @author yihonglei
      * @date 2018/12/21 18:55
      */
@@ -32,9 +34,9 @@ public class RoutingConsumer2 {
         channel.basicQos(1);
 
         // 队列绑定到交换机，如果有多个Rounting key，需要都绑定
-        channel.queueBind(CommonConsant.DIRECT_QUEUE2_NAME, CommonConsant.EXCHANGE_NAME_DIRECT, CommonConsant.ROUNTING_KKEY_ERROR);
-        channel.queueBind(CommonConsant.DIRECT_QUEUE2_NAME, CommonConsant.EXCHANGE_NAME_DIRECT, CommonConsant.ROUNTING_KKEY_INFO);
-        channel.queueBind(CommonConsant.DIRECT_QUEUE2_NAME, CommonConsant.EXCHANGE_NAME_DIRECT, CommonConsant.ROUNTING_KKEY_WARNING);
+        channel.queueBind(CommonConsant.DIRECT_QUEUE2_NAME, CommonConsant.EXCHANGE_NAME_DIRECT, CommonConsant.ROUNTING_KEY_ERROR);
+        channel.queueBind(CommonConsant.DIRECT_QUEUE2_NAME, CommonConsant.EXCHANGE_NAME_DIRECT, CommonConsant.ROUNTING_KEY_INFO);
+        channel.queueBind(CommonConsant.DIRECT_QUEUE2_NAME, CommonConsant.EXCHANGE_NAME_DIRECT, CommonConsant.ROUNTING_KEY_WARNING);
 
         // 消息消费
         Consumer consumer = new DefaultConsumer(channel) {
