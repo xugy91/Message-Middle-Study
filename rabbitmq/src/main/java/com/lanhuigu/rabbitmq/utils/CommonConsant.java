@@ -54,4 +54,6 @@ public class CommonConsant {
 
     public final static String TOPIC_KEY_GOODS_ANY = "goods.#";
 
+    // ===================== 消息确认机制 =====================
+    public final static String TX_QUEUE_NAME = "test-queue-tx";
 }
