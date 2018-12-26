@@ -31,13 +31,11 @@ public class SimpleSender {
         channel.queueDeclare(CommonConsant.SIMPLE_QUEUE_NAME, true, false, false, null);
 
         // 消息发送
-        for (int i = 0; i < 10; i++) {
-            String message = "Hello World RabbitMQ count：" + i;
-            // 发布消息，第一个参数表示路由（Exchange名称），未""则表示使用默认消息路由
-            channel.basicPublish("", CommonConsant.SIMPLE_QUEUE_NAME, null, message.getBytes());
+        String message = "Hello World";
+        // 发布消息，第一个参数表示路由（Exchange名称），未""则表示使用默认消息路由
+        channel.basicPublish("", CommonConsant.SIMPLE_QUEUE_NAME, null, message.getBytes());
 
-            System.out.println(" Sent '" + message + "'");
-        }
+        System.out.println("SimpleSender-：" + message);
 
         // 关闭消息通道和连接
         channel.close();

@@ -31,6 +31,6 @@ public class SimpleTest {
      */
     @Test
     public void consumer() throws IOException, TimeoutException, InterruptedException {
-        SimpleConsumer.consumer();
+        SimpleConsumer.consume();
     }
 }
