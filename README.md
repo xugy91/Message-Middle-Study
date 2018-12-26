@@ -23,15 +23,15 @@ Connection连接工具类。
 
 publish/subscribe 发布/定阅模式。
 
-5、routing
+6、routing
 
 路由模式，基于key路由队列消费。
 
-6、topic
+7、topic
 
 主题模式，基于topic生产消费。
 
-7、tx
+8、tx
 
 消息发送事务控制。
 
