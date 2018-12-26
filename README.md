@@ -1,5 +1,5 @@
 # 项目简介
-基于maven构建，对RabbitMQ基本特性体验。
+基于maven构建，对RabbitMQ基本特性简单代码体验。
 
 # src目录
 
