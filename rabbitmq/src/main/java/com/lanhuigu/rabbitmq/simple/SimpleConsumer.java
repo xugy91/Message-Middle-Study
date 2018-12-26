@@ -10,6 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 简单队列--消费者
+ *
  * @author yihonglei
  * @date 2018/12/18 11:13
  */
@@ -17,6 +18,7 @@ public class SimpleConsumer {
 
     /**
      * 消息消费者
+     *
      * @author yihonglei
      * @date 2018/12/13 18:05
      */
