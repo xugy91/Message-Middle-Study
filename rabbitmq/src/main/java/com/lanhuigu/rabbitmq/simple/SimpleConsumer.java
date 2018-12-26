@@ -1,12 +1,11 @@
 package com.lanhuigu.rabbitmq.simple;
 
-import com.lanhuigu.rabbitmq.utils.ConnectionUtil;
 import com.lanhuigu.rabbitmq.utils.CommonConsant;
+import com.lanhuigu.rabbitmq.utils.ConnectionUtil;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 简单队列--消费者
