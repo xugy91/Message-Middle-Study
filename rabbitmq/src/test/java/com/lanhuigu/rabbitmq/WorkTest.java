@@ -19,6 +19,7 @@ import java.util.concurrent.TimeoutException;
  * 消费者2：奇数
  * 这种方式叫做轮训分发（round-robin），结果就是不管谁忙活着谁清闲着，都不会多给一个消息，
  * 任务消息按照你一个，我一个的方式消费，两个消费者公平的拿到相同数量的消息，只是时间先后而已。
+ *
  * @author yihonglei
  * @date 2018/12/18 16:20
  */

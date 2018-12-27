@@ -9,6 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * RabbitMQ生产-->简单队列-->消费测试
+ *
  * @author yihonglei
  * @date 2018/12/13 17:07
  */
@@ -16,6 +17,7 @@ public class SimpleTest {
 
     /**
      * 消息生产者
+     *
      * @author yihonglei
      * @date 2018/12/13 18:05
      */
@@ -26,6 +28,7 @@ public class SimpleTest {
 
     /**
      * 消息消费者
+     *
      * @author yihonglei
      * @date 2018/12/13 18:05
      */

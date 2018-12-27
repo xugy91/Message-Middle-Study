@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
+ * Topic（主题模式）测试
+ *
  * @author yihonglei
  * @date 2018/12/22 22:49
  */
