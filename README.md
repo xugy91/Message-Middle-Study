@@ -42,6 +42,6 @@ publish/subscribe 发布/定阅模式。
 
 【RabbitMQ】Hello World入门实战 https://blog.csdn.net/yhl_jxy/article/details/85262096
 
-
+【RabbitMQ】工作队列之轮询分发(Round-robin dispatching) https://blog.csdn.net/yhl_jxy/article/details/85322696
 
 
