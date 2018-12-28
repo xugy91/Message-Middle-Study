@@ -9,6 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * 基于工作队列--消费者
+ *
  * @author yihonglei
  * @date 2018/12/18 11:33
  */
@@ -16,6 +17,7 @@ public class WorkConsumer2 {
 
     /**
      * 消费者1
+     *
      * @author yihonglei
      * @date 2018/12/18 14:39
      */
@@ -30,7 +32,7 @@ public class WorkConsumer2 {
         channel.queueDeclare(CommonConsant.WORK_QUEUE_NAME, false, false, false, null);
 
         // 定义一个消费者监听消息
-        Consumer consumer = new DefaultConsumer(channel){
+        Consumer consumer = new DefaultConsumer(channel) {
             // 一旦有消息，触发该方法
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope,
