@@ -1,7 +1,7 @@
-# 项目简介
+# 一 项目简介
 基于maven构建，对RabbitMQ基本特性简单代码体验。
 
-# src目录
+## src目录
 
 1、utils
 
@@ -35,7 +35,13 @@ publish/subscribe 发布/定阅模式。
 
 消息发送事务控制。
 
-# test目录
+## test目录
 对应src测试代码。
+
+# 二 技术博客
+
+【RabbitMQ】Hello World入门实战 https://blog.csdn.net/yhl_jxy/article/details/85262096
+
+
 
 
