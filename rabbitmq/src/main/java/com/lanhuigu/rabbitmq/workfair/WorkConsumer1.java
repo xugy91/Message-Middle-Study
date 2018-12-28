@@ -54,7 +54,7 @@ public class WorkConsumer1 {
             }
         };
 
-        boolean autoAck = false; // 自动应答，改为false
+        boolean autoAck = false; // 手动应答
         channel.basicConsume(CommonConsant.WORK_QUEUE_NAME, autoAck, consumer);
 
         // 让程序处于运行状态，让消费者监听消息
