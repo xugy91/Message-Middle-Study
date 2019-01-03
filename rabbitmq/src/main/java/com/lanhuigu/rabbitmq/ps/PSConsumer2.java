@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * 消费者2
+ * 消费者2（短信发送消费者）
  *
  * @author yihonglei
  * @date 2018/12/20 10:33
