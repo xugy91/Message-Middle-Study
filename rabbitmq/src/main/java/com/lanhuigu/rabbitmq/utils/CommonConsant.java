@@ -14,7 +14,7 @@ public class CommonConsant {
     // 工作队列消息队列名称
     public final static String WORK_QUEUE_NAME = "test-work-queue";
 
-    // ===================== S/P发布订阅模式-fanout =====================
+    // ===================== S/P发布订阅模式-fanout(不处理路由键) =====================
     // 交换机名称
     public final static String EXCHANGE_NAME_FANOUT = "test-exchange-fanout";
 
@@ -24,7 +24,7 @@ public class CommonConsant {
     // 短信队列名称
     public final static String EXCHANGE_NAME_FANOUT_SMS = "test-queue-sms";
 
-    // ===================== Routing路由模式-fanout =====================
+    // ===================== Routing路由模式-direct（处理路由键） =====================
     // 交换机名称
     public final static String EXCHANGE_NAME_DIRECT = "test-exchange-direct";
 

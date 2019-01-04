@@ -10,6 +10,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * Rounting(路由模式)
+ *
  * @author yihonglei
  * @date 2018/12/20 22:51
  */
@@ -17,6 +18,7 @@ public class RoutingSender {
 
     /**
      * 路由队列的key
+     *
      * @author yihonglei
      * @date 2018/12/21 18:55
      */
