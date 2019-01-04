@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
+ * 固定RoutingKey(goods.add)，消费添加商品消息
  *
  * @author yihonglei
  * @date 2018/12/20 22:52
