@@ -16,6 +16,7 @@
     <java.version>1.8</java.version>
     <!-- Junit -->
     <junit.version>4.12</junit.version>
+    <!-- amqp-client -->
     <amqp-client.version>5.5.1</amqp-client.version>
   </properties>
 

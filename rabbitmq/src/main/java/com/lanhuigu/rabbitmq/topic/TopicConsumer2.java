@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * 路由Key(goods.#)，模糊匹配，消费goods开头的消息（除添加商品外，修改商品属性等，都消费）
+ * 【topic模式】路由Key(goods.#)，模糊匹配，消费goods开头的消息（除添加商品外，修改商品属性等，都消费）
  *
  * @author yihonglei
  * @date 2018/12/20 22:52
