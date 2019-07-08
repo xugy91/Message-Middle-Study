@@ -7,6 +7,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * RabbitMQ连接工具
+ *
  * @author yihonglei
  * @date 2018/12/17 10:25
  */
@@ -14,6 +15,7 @@ public class ConnectionUtil {
 
     /**
      * 创建Connection
+     *
      * @author yihonglei
      * @date 2018/12/17 10:27
      */
