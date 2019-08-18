@@ -1,4 +1,4 @@
-## 基础篇
+## RabbitMQ
 
 【RabbitMQ】Hello World入门实战 https://blog.csdn.net/yhl_jxy/article/details/85262096
 
