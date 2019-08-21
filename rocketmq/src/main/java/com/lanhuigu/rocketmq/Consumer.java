@@ -11,6 +11,8 @@ import org.apache.rocketmq.common.message.MessageExt;
 
 /**
  * 消费者
+ *
+ * @author yihonglei
  */
 public class Consumer {
     public static void main(String[] args) throws MQClientException {
@@ -37,14 +39,14 @@ public class Consumer {
 
                 // 执行topic的消费逻辑
                 MessageExt msg = msgs.get(0);
-                if (msg.getTopic().equals("TopicTest")) {
-                    if (msg.getTags() != null && msg.getTags().equals("TagA")) {
+                if ("TopicTest".equals(msg.getTopic())) {
+                    if (msg.getTags() != null && "TagA".equals(msg.getTags())) {
                         // 执行TagA消费
                         System.out.println("TagA========" + new String(msg.getBody()));
-                    } else if (msg.getTags() != null && msg.getTags().equals("TagB")) {
+                    } else if (msg.getTags() != null && "TagB".equals(msg.getTags())) {
                         // 执行TagB消费
                         System.out.println("TagB========" + new String(msg.getBody()));
-                    } else if (msg.getTags() != null && msg.getTags().equals("TagC")) {
+                    } else if (msg.getTags() != null && "TagC".equals(msg.getTags())) {
                         // 执行TagC消费
                         System.out.println("TagC========" + new String(msg.getBody()));
                     }

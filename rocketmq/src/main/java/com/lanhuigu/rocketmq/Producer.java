@@ -1,5 +1,6 @@
 package com.lanhuigu.rocketmq;
 
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.rocketmq.client.exception.MQClientException;
@@ -9,6 +10,8 @@ import org.apache.rocketmq.common.message.Message;
 
 /**
  * 生产者
+ *
+ * @author yihonglei
  */
 public class Producer {
     public static void main(String[] args) throws MQClientException, InterruptedException {
@@ -29,12 +32,11 @@ public class Producer {
         // 发送消息
         for (int i = 0; i < 10; i++) {
             try {
-                Message msg = new Message("TopicTest",
-                        "TagA",
-                        "OrderID00",
-                        ("Hello RocketMQA").getBytes());
+                String msg = "Hello RocketMQA";
+                Message rocketMsg =
+                        new Message("TopicTest", "TagA", "OrderID00", msg.getBytes(StandardCharsets.UTF_8));
 
-                SendResult sendResult = producer.send(msg);
+                SendResult sendResult = producer.send(rocketMsg);
                 System.out.println(sendResult);
             } catch (Exception e) {
                 e.printStackTrace();
