@@ -18,7 +18,7 @@ public class TXConsumer {
 
         Connection connection = ConnectionUtil.getConnection();
 
-        Channel channel = connection.createChannel();
+        final Channel channel = connection.createChannel();
 
         channel.queueDeclare(CommonConsant.TX_QUEUE_NAME, false,false,false, null);
 

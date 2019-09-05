@@ -1,8 +1,7 @@
 package com.lanhuigu.rabbitmq;
 
-import com.lanhuigu.rabbitmq.routing.RoutingConsumer1;
-import com.lanhuigu.rabbitmq.routing.RoutingConsumer2;
-import com.lanhuigu.rabbitmq.routing.RoutingSender;
+import com.lanhuigu.rabbitmq.delayed.RoutingConsumer1;
+import com.lanhuigu.rabbitmq.delayed.RoutingSender;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -14,8 +13,7 @@ import java.util.concurrent.TimeoutException;
  * @author yihonglei
  * @date 2018/12/21 18:56
  */
-public class RoutingTest {
-
+public class DelayedTest {
     @Test
     public void send() throws IOException, TimeoutException {
         // 对应RountingKey的能收到消息
@@ -27,10 +25,4 @@ public class RoutingTest {
     public void consumer1() throws InterruptedException, TimeoutException, IOException {
         RoutingConsumer1.consume();
     }
-
-    @Test
-    public void consumer2() throws InterruptedException, TimeoutException, IOException {
-        RoutingConsumer2.consume();
-    }
-
 }

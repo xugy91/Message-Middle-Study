@@ -24,9 +24,9 @@ public class ConnectionUtil {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("127.0.0.1");
         factory.setPort(5672);
-        factory.setVirtualHost("/vhost_yihonglei");
-        factory.setUsername("guest");
-        factory.setPassword("guest");
+        factory.setVirtualHost("/");
+        factory.setUsername("username");
+        factory.setPassword("password");
 
         // 创建连接
         Connection connection = factory.newConnection();

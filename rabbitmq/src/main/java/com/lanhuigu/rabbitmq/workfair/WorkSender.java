@@ -29,7 +29,7 @@ public class WorkSender {
         Connection connection = ConnectionUtil.getConnection();
 
         // 创建通道
-        Channel channel = connection.createChannel();
+        final Channel channel = connection.createChannel();
 
         // 声明消息队列
         channel.queueDeclare(CommonConsant.WORK_QUEUE_NAME, false,false, false, null);

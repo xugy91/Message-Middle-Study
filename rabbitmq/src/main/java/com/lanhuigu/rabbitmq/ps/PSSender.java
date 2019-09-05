@@ -21,7 +21,7 @@ public class PSSender {
         Connection connection = ConnectionUtil.getConnection();
 
         // 创建通道
-        Channel channel = connection.createChannel();
+        final Channel channel = connection.createChannel();
 
         // 声明交换机
         channel.exchangeDeclare(CommonConsant.EXCHANGE_NAME_FANOUT, "fanout"); // 分发

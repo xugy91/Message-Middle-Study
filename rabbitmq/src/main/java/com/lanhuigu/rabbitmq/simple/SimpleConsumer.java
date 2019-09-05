@@ -26,7 +26,7 @@ public class SimpleConsumer {
         Connection connection = ConnectionUtil.getConnection();
 
         // 创建消息通道
-        Channel channel = connection.createChannel();
+        final Channel channel = connection.createChannel();
 
         // 声明消息队列
         channel.queueDeclare(CommonConsant.SIMPLE_QUEUE_NAME, true, false, false, null);

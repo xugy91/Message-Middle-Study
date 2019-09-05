@@ -56,4 +56,14 @@ public class CommonConsant {
 
     // ===================== 消息确认机制 =====================
     public final static String TX_QUEUE_NAME = "test-queue-tx";
+
+
+    // ===================== 延时队列 =====================
+    public final static String DLX_EXCHANGE = "dlx.exchange";
+
+    public final static String DLX_QUEUE = "dlx.queue";
+
+    public final static String DELAY_EXCHANGE = "delay.exchange";
+
+    public final static String DELAY_QUEUE = "delay.queue";
 }

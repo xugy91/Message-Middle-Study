@@ -25,7 +25,7 @@ public class TopicConsumer1 {
         Connection connection = ConnectionUtil.getConnection();
 
         // 创建通道
-        Channel channel = connection.createChannel();
+        final Channel channel = connection.createChannel();
 
         // 声明队列
         channel.queueDeclare(CommonConsant.TOPIC_QUEUE1_NAME, false, false, false, null);
@@ -51,7 +51,8 @@ public class TopicConsumer1 {
                     e.printStackTrace();
                 } finally {
                     System.out.println("TopicConsumer1：Done");
-                    channel.basicAck(envelope.getDeliveryTag(), false);
+//                    channel.basicAck(envelope.getDeliveryTag(), false);
+                    channel.basicReject(envelope.getDeliveryTag(), true);
                 }
             }
 
